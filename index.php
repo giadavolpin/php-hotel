@@ -60,32 +60,54 @@ $hotels = [
 </head>
 
 <body>
+    <form action="index.php" method="get">
+        parking:<input type="submit">
+        <!-- se il parcheggio è vero allora vengono fuori gli hotel con il parcheggio -->
+        <?php
+    if (isset($_GET['parking'])) {
+        $parking = $_GET['parking'];
+    } else {
+        $parking = 'Non ho il parcheggio';
+    }
+    ;
+    ?>
+
+    </form>
     <div class="container">
         <div class="row">
             <?php
             foreach ($hotels as $item) { ?>
-            <div class="col-4">
-                <div class="card" style="">
-                    <div class="card-body text-center">
-                        <p class="card-text ">
-                            <?php echo $item['name'] ?>
-                        </p>
-                        <p>
-                            <?php echo $item['description'] ?>
-                        </p>
-                        <p>
-                            <?php echo $item['vote'] ?>
-                        </p>
-                        <p>
-                            <?php echo $item['distance_to_center'] ?>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <?php }
 
-            ?>
+            <table class="table table-bordered">
+                <tbody class="table-bordered" style="">
+                    <tr class="table-bordered text-center">
+                        <th class="table-bordered">
+                            <?php echo $item['name'] ?>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="table-bordered">
+                            <?php echo $item['description'] ?>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="table-bordered">
+                            <?php echo $item['vote'] ?>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="table-bordered">
+                            <?php echo $item['distance_to_center'] ?>
+                        </th>
+                    </tr>
+                </tbody>
+
+                <?php }
+
+                ?>
+            </table>
         </div>
+
     </div>
 
 </body>

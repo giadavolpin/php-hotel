@@ -41,7 +41,6 @@ $hotels = [
 
 
 //echo $hotels[0]['name'];
-
 ?>
 
 
@@ -61,11 +60,32 @@ $hotels = [
 </head>
 
 <body>
-    <div>
-        <form action="index.php" method="get">
+    <div class="container">
+        <div class="row">
+            <?php
+            foreach ($hotels as $item) { ?>
+            <div class="col-4">
+                <div class="card" style="">
+                    <div class="card-body text-center">
+                        <p class="card-text ">
+                            <?php echo $item['name'] ?>
+                        </p>
+                        <p>
+                            <?php echo $item['description'] ?>
+                        </p>
+                        <p>
+                            <?php echo $item['vote'] ?>
+                        </p>
+                        <p>
+                            <?php echo $item['distance_to_center'] ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <?php }
 
-
-        </form>
+            ?>
+        </div>
     </div>
 
 </body>

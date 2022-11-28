@@ -64,13 +64,38 @@ $hotels = [
         parking:<input type="submit">
         <!-- se il parcheggio è vero allora vengono fuori gli hotel con il parcheggio -->
         <?php
-    if (isset($_GET['parking'])) {
-        $parking = $_GET['parking'];
-    } else {
+
+        if (isset($_GET['parking'])) { //se è settato in parking
+            $parking = $_GET['parking'];
+            if ($parking) {
+                foreach ($hotels as $parking) {
+                    foreach ($parking as $hotels) {
+                        echo $parking;
+                    }
+                }
+            }
+        }
+
+        /*         } else {
         $parking = 'Non ho il parcheggio';
-    }
-    ;
-    ?>
+        }
+        ;
+        echo $parking;
+        */
+
+        /* 
+        foreach ($animals as $animalClass){
+        foreach($animalClass as $animals) {
+        echo $animal;
+        }
+        } 
+        
+        */
+
+
+
+
+        ?>
 
     </form>
     <div class="container">

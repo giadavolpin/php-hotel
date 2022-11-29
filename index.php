@@ -74,19 +74,14 @@ $hotels = [
             $tempHotel = [];
 
             foreach ($hotels as $parking) {
-                foreach ($parking as $hotels) {
-                    echo $parking;
+                if ($parking["parking"] === true) {
+                    $tempHotel[] = $parking;
                 }
             }
+            echo var_dump($tempHotel);
+            $tempHotel = $hotels;
         }
 
-        /* 
-        foreach ($animals as $animalClass){
-        foreach($animalClass as $animals) {
-        echo $animal;
-        }
-        } 
-        */
         ?>
     </form>
     <div class="container">

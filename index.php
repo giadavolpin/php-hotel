@@ -61,27 +61,24 @@ $hotels = [
 
 <body>
     <form action="index.php" method="get">
-        parking:<input type="submit">
-        <!-- se il parcheggio è vero allora vengono fuori gli hotel con il parcheggio -->
+        <label for="parking">Hotel</label>
+        <select name="parking" id="parking">
+            <option value="">Scegli</option>
+            <option value="1">Con parcheggio</option> <!-- DEVO METTERE = A 1 XK COSI POI ME LO PRENDE NEL ISSET -->
+        </select>
+        <!-- se il parcheggio è 1 allora vengono fuori gli hotel con il parcheggio -->
         <?php
 
-        if (isset($_GET['parking'])) { //se è settato in parking
-            $parking = $_GET['parking'];
-            if ($parking) {
-                foreach ($hotels as $parking) {
-                    foreach ($parking as $hotels) {
-                        echo $parking;
-                    }
+        if (isset($_GET['parking']) && $_GET['parking'] === '1') { //se è settato in parking
+            //usiamo un array temporeaneo per memorizzare gli hotel che corrispondono al criterio selezionato
+            $tempHotel = [];
+
+            foreach ($hotels as $parking) {
+                foreach ($parking as $hotels) {
+                    echo $parking;
                 }
             }
         }
-
-        /*         } else {
-        $parking = 'Non ho il parcheggio';
-        }
-        ;
-        echo $parking;
-        */
 
         /* 
         foreach ($animals as $animalClass){
@@ -89,14 +86,8 @@ $hotels = [
         echo $animal;
         }
         } 
-        
         */
-
-
-
-
         ?>
-
     </form>
     <div class="container">
         <div class="row">

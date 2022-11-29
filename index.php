@@ -66,6 +66,7 @@ $hotels = [
             <option value="">Scegli</option>
             <option value="1">Con parcheggio</option> <!-- DEVO METTERE = A 1 XK COSI POI ME LO PRENDE NEL ISSET -->
         </select>
+        <button type="submit">invia</button> <!-- prende quello che ho scelto e lo mette nell url -->
         <!-- se il parcheggio è 1 allora vengono fuori gli hotel con il parcheggio -->
         <?php
 
